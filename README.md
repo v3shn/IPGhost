@@ -26,7 +26,7 @@ cd IPGhost
 ```bash
 cd IPGhost
 ```
-2. Run the install.sh script to set up NetShift:
+2. Run the install.sh script to set up IPGhost:
 
 ```bash
 sudo bash install.sh
