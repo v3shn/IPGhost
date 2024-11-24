@@ -1,7 +1,7 @@
 
-## IP Ghost
+## IPGhost
 
-IP Ghost is a powerful Ethical Hacking tool designed to enhance your anonymity and privacy on the internet by leveraging the Tor network. It automatically changes your IP address, making it difficult for anyone to track your online activities. 
+IPGhost is a powerful Ethical Hacking tool designed to enhance your anonymity and privacy on the internet by leveraging the Tor network. It automatically changes your IP address, making it difficult for anyone to track your online activities. 
 
 ## Features
 - Automatic installation of required dependencies (`Tor`, `curl`, `jq`).
@@ -92,7 +92,7 @@ Change your SOCKS to 127.0.0.1:9050
 [~] Changing identity...
 [+] New IP: 89.45.67.120
 ```
-## Stopping NetShift
+## Stopping IPGhost
 - **Infinite Mode:** Press `Ctrl+C` to stop.
 - **Fixed IP Address Change:** The Tool will automatically terminate after completing the specified number of cycles.
 
