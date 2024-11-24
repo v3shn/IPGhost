@@ -104,7 +104,7 @@ cd IPGhost
 cd IPGhost
 ```
 ```bash
- sudo bash install.sh
+sudo bash install.sh
 ```
 Then Enter `n` for uninstall
   
