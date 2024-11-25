@@ -1,7 +1,7 @@
 
 ## IPGhost
 
-IPGhost is a tool for ethical hackers. It helps you stay private and anonymous online by changing your IP address through the Tor network. This makes it hard for anyone to track what you do on the internet.
+IPGhost is a strong tool for ethical hackers. It helps you stay private and anonymous online by using the Tor network. This tool automatically changes your IP address and location, making it hard for anyone to track your online activities
 
 ## Features
 - Automatic installation of required dependencies (`Tor`, `curl`, `jq`).
