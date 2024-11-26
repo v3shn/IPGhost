@@ -95,7 +95,7 @@ Change your SOCKS to 127.0.0.1:9050
 [+] IP Address:192.42.116.194
 [+] City: Nieuwegein
 [+] Region: Utrecht
-[+] Country:NL
+[+] Country: NL
 ```
 ## Stopping IPGhost
 - **Infinite Mode:** Press `Ctrl+C` to stop.
