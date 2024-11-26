@@ -5,8 +5,8 @@ IPGhost is a strong tool for ethical hackers. It helps you stay private and anon
 
 ## Features
 - Automatic installation of required dependencies (`Tor`, `curl`, `jq`).
-- Changing your IP address regularly through Tor to stay anonymous.
-- Display of the current Tor-routed IP address after every IP Address change.
+- Changing your IP address and location regularly through Tor to stay anonymous.
+- Display of the current Tor-routed IP address and ip address location after every IP Address change.
 - User-defined IP Address change interval and cycle count (or infinite mode).
 - SOCKS proxy setup instructions for routing your applications through Tor.
 ## Requirements
@@ -65,10 +65,10 @@ To route your internet traffic through Tor, configure your applications to use t
 2. **IP change:**
 
 - Prompts the user for Enter Ip Address change interval (default: 60 seconds) and number of IP address change (0 for infinite).
-- Reloads the Tor service to change identity and fetches the new IP address.
+- Reloads the Tor service to change identity and fetches the new IP address and new IP address Location.
 
   
-3 **Monitor New IP:** Displays the Tor-assigned IP after each IP Address change to verify successful anonymization.
+3 **Monitor New IP:** Displays the Tor-assigned IP And Its location after each IP Address change to verify successful anonymization.
 
 ## Example Output
 ```plaintext
@@ -90,9 +90,12 @@ Change your SOCKS to 127.0.0.1:9050
 [+] Enter interval (seconds) between IP changes [default: 60]: 30
 [+] Enter number of IP changes (0 for infinite): 5
 [~] Changing identity...
-[+] New IP: 185.220.101.34
-[~] Changing identity...
-[+] New IP: 89.45.67.120
+[~] Identity changed.
+[+] New IP and location:
+[+] IP Address:192.42.116.194
+[+] City: Nieuwegein
+[+] Region: Utrecht
+[+] Country:NL
 ```
 ## Stopping IPGhost
 - **Infinite Mode:** Press `Ctrl+C` to stop.
