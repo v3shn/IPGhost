@@ -43,6 +43,8 @@ sudo ipghost
 **After Running The tool .This Tool will automatically Install necessary dependencies (Tor, curl, jq).**
 
 **Step 2: Configure SOCKS Proxy**
+
+
 To route your internet traffic through Tor, configure your applications to use the Tor SOCKS proxy:
 
 - **Proxy Address:** `127.0.0.1`
