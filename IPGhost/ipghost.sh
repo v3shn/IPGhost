@@ -6,6 +6,8 @@ BOLD="\033[1m"
 GREEN="\033[92m"
 YELLOW="\033[93m"
 RED="\033[91m"
+BLUE="\033[34m"
+
 
 # Function to check and install dependencies
 install_dependencies() {
@@ -70,19 +72,26 @@ initialize_tor() {
 
 # Rotate identity using Tor
 rotate_identity() {
+ 
     echo -e "${YELLOW}[~] Changing identity...${RESET}"
     sudo service tor reload
     echo -e "${YELLOW}[~] Identity changed.${RESET}"
-}
+ 
+}    
 
-# Fetch external IP using Tor
-fetch_ip() {
-    local ip
+# Fetch external IP and location using Tor
+fetch_ip_and_location() {
+    local ip city region country
     ip=$(curl --silent --socks5 127.0.0.1:9050 --socks5-hostname 127.0.0.1:9050 http://httpbin.org/ip | jq -r .origin 2>/dev/null)
     if [ -z "$ip" ]; then
         echo -e "${RED}Error: Unable to fetch IP.${RESET}"
     else
-        echo "$ip"
+        city=$(curl --silent ipinfo.io/$ip | jq -r '.city' 2>/dev/null)
+        region=$(curl --silent ipinfo.io/$ip | jq -r '.region' 2>/dev/null)
+        country=$(curl --silent ipinfo.io/$ip | jq -r '.country' 2>/dev/null)
+     
+        echo -e "${GREEN}[+] IP Address: $ip\n[+] City: $city\n[+] Region: $region\n[+] Country:$country${RESET}"
+
     fi
 }
 
@@ -104,13 +113,13 @@ execute_rotation() {
         while true; do
             sleep "$interval"
             rotate_identity
-            echo -e "${GREEN}[+] New IP: $(fetch_ip)${RESET}"
+            echo -e "${BLUE}[+] New IP and location:${RESET}\n$(fetch_ip_and_location)"
         done
     else
         for ((i = 1; i <= cycles; i++)); do
             sleep "$interval"
             rotate_identity
-            echo -e "${GREEN}[+] New IP: $(fetch_ip)${RESET}"
+            echo -e "${BLUE}[+] New IP and location:${RESET}\n$(fetch_ip_and_location)"
         done
     fi
 }
