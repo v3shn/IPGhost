@@ -90,7 +90,7 @@ fetch_ip_and_location() {
         region=$(curl --silent ipinfo.io/$ip | jq -r '.region' 2>/dev/null)
         country=$(curl --silent ipinfo.io/$ip | jq -r '.country' 2>/dev/null)
      
-        echo -e "${GREEN}[+] IP Address: $ip\n[+] City: $city\n[+] Region: $region\n[+] Country:$country${RESET}"
+        echo -e "${GREEN}[+] IP Address: $ip\n[+] City: $city\n[+] Region: $region\n[+] Country: $country${RESET}"
 
     fi
 }
