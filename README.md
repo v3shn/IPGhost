@@ -91,11 +91,10 @@ Change your SOCKS to 127.0.0.1:9050
 [+] Enter number of IP changes (0 for infinite): 5
 [~] Changing identity...
 [~] Identity changed.
-[+] New IP and location:
-[+] IP Address:192.42.116.194
-[+] City: Nieuwegein
-[+] Region: Utrecht
-[+] Country: NL
+[+] New IP: 103.251.167.20
+[~] Changing identity...
+[~] Identity changed.
+[+] New IP: 185.129.61.4
 ```
 ## Stopping IPGhost
 - **Infinite Mode:** Press `Ctrl+C` to stop.
