@@ -1,12 +1,12 @@
 
 ## IPGhost
 
-IPGhost is a strong tool for ethical hackers. It helps you stay private and anonymous online by using the Tor network. This tool automatically changes your IP address and location, making it hard for anyone to track your online activities
+IPGhost is a strong tool for ethical hackers. It helps you stay private and anonymous online by using the Tor network. This tool automatically changes your IP address , making it hard for anyone to track your online activities
 
 ## Features
 - Automatic installation of required dependencies (`Tor`, `curl`, `jq`).
 - Changing your IP address and location regularly through Tor to stay anonymous.
-- Display of the current Tor-routed IP address and ip address location after every IP Address change.
+- Display of the current Tor-routed IP address after every IP Address change.
 - User-defined IP Address change interval and cycle count (or infinite mode).
 - SOCKS proxy setup instructions for routing your applications through Tor.
 ## Requirements
@@ -68,7 +68,7 @@ To route your internet traffic through Tor, configure your applications to use t
 - Reloads the Tor service to change identity and fetches the new IP address and new IP address Location.
 
   
-3 **Monitor New IP:** Displays the Tor-assigned IP And Its location after each IP Address change to verify successful anonymization.
+3 **Monitor New IP:** Displays the Tor-assigned IP  after each IP Address change to verify successful anonymization.
 
 ## Example Output
 ```plaintext
