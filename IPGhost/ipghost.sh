@@ -12,9 +12,9 @@ check_sudo() {
 
    if [ "$EUID" -ne 0 ];then
 
-      echo -e "${YELLOW} Please Run This Tool As Root Or With sudo${RESET}"
+        echo -e "${YELLOW} Please Run This Tool As Root Or With sudo${RESET}"
 
-      exit 1
+        exit 1
 
    fi 
 
