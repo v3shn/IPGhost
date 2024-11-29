@@ -10,13 +10,13 @@ RED="\033[91m"
 # check if the user run as root or with sudo
 check_sudo() {
 
-     if [ "$EUID" -ne 0 ];then
+   if [ "$EUID" -ne 0 ];then
 
-         echo -e "${YELLOW} Please Run This Tool As Root Or With sudo${RESET}"
+      echo -e "${YELLOW} Please Run This Tool As Root Or With sudo${RESET}"
 
-         exit 1
+      exit 1
 
-fi 
+   fi 
 
  }
 
