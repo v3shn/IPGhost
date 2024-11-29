@@ -7,7 +7,8 @@ GREEN="\033[92m"
 YELLOW="\033[93m"
 RED="\033[91m"
 
-# check if user run as  sudo
+# check if user run as root or with sudo
+check_sudo() {
 
 if [ "$EUID" -ne 0 ];then
 
@@ -16,7 +17,8 @@ echo -e "${YELLOW} Please Run This Tool As Root Or With sudo${RESET}"
 exit 1
 
 fi 
- 
+
+ }
 
 # Function to check and install dependencies
 install_dependencies() {
@@ -126,6 +128,8 @@ execute_rotation() {
     fi
 }
 
+#check if the user run as root or with sudo
+check_sudo
 # Ensure dependencies are installed and start the script
 install_dependencies
 execute_rotation
