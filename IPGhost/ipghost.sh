@@ -7,7 +7,7 @@ GREEN="\033[92m"
 YELLOW="\033[93m"
 RED="\033[91m"
 
-# check if user run as root or with sudo
+# check if the user run as root or with sudo
 check_sudo() {
 
 if [ "$EUID" -ne 0 ];then
