@@ -20,13 +20,15 @@ IPGhost is a strong tool for ethical hackers. It helps you stay private and anon
 ```bash
 git clone https://github.com/s-r-e-e-r-a-j/IPGhost.git
 ```
+2. **Navigate to the IPGhost directory**
 ```bash
 cd IPGhost
 ```
+3. **Navigate to the IPGhost directory**
 ```bash
 cd IPGhost
 ```
-2. Run the install.sh script to set up IPGhost:
+4. **Run the install.sh script to set up IPGhost**:
 
 ```bash
 sudo bash install.sh
