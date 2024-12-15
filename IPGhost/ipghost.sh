@@ -67,7 +67,7 @@ display_banner() {
                                             
                                                                         
 EOF
-    echo -e "${RESET}${YELLOW}* copyright of Sreeraj, 2024  *"
+    echo -e "${RESET}${YELLOW}* Copyright © Sreeraj, 2024  *"
     echo -e "${YELLOW}* GitHub: https://github.com/s-r-e-e-r-a-j  *${RESET}"
     echo
     echo -e "${GREEN}Change your SOCKS to 127.0.0.1:9050${RESET}"
