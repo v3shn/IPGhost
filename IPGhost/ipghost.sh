@@ -64,7 +64,8 @@ display_banner() {
    | | |  ___/  | | |_ | '_ \ / _ \/ __| __|
   _| |_| |      | |__| | | | | (_) \__ \ |_ 
  |_____|_|       \_____|_| |_|\___/|___/\__|
-                                            
+
+                         Developer: Sreeraj
                                                                         
 EOF
     echo -e "${RESET}${YELLOW}* Copyright © Sreeraj, 2024  *"
