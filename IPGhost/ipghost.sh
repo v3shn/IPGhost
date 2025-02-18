@@ -7,18 +7,13 @@ GREEN="\033[92m"
 YELLOW="\033[93m"
 RED="\033[91m"
 
-# check if the user run as root or with sudo
+# Check if the user is running as root
 check_sudo() {
-
-   if [ "$EUID" -ne 0 ];then
-
-        echo -e "${YELLOW} Please Run This Tool As Root Or With sudo${RESET}"
-
+    if [ "$EUID" -ne 0 ]; then
+        echo -e "${YELLOW} Please run this tool as root or with sudo${RESET}"
         exit 1
-
-   fi 
-
- }
+    fi
+}
 
 # Function to check and install dependencies
 install_dependencies() {
@@ -68,7 +63,7 @@ display_banner() {
                          Developer: Sreeraj
                                                                         
 EOF
-    echo -e "${RESET}${YELLOW}* Copyright © Sreeraj, 2024"
+    echo -e "${RESET}${YELLOW}* Copyright Â© Sreeraj, 2024"
     echo -e "${YELLOW}* GitHub: https://github.com/s-r-e-e-r-a-j${RESET}"
     echo
     echo -e "${GREEN}Change your SOCKS to 127.0.0.1:9050${RESET}"
@@ -82,6 +77,17 @@ initialize_tor() {
     echo -e "${GREEN}[+] Tor service started.${RESET}"
 }
 
+# Stop Tor service when exiting
+cleanup() {
+    echo -e "${RED}[!] Stopping Tor service...${RESET}"
+    sudo service tor stop
+    echo -e "${RED}[!] Tor service stopped.${RESET}"
+    exit 0
+}
+
+# Handle script termination
+trap cleanup SIGINT SIGTERM
+
 # Rotate identity using Tor
 rotate_identity() {
     echo -e "${YELLOW}[~] Changing identity...${RESET}"
@@ -89,14 +95,26 @@ rotate_identity() {
     echo -e "${YELLOW}[~] Identity changed.${RESET}"
 }
 
-# Fetch external IP using Tor
-fetch_ip() {
-    local ip
+# Fetch external IP and location using ipapi.co and Tor
+fetch_ip_and_location() {
+    local ip country region city
+
     ip=$(curl --silent --socks5 127.0.0.1:9050 --socks5-hostname 127.0.0.1:9050 http://httpbin.org/ip | jq -r .origin 2>/dev/null)
+
     if [ -z "$ip" ]; then
         echo -e "${RED}Error: Unable to fetch IP.${RESET}"
     else
-        echo "$ip"
+        location=$(curl --silent --socks5 127.0.0.1:9050 --socks5-hostname 127.0.0.1:9050 "https://ipapi.co/$ip/json/" | jq -r '.country_name, .region, .city')
+
+        country=$(echo "$location" | sed -n '1p')
+        region=$(echo "$location" | sed -n '2p')
+        city=$(echo "$location" | sed -n '3p')
+
+        echo -e "${GREEN}[+] New IP: $ip${RESET}"
+        echo -e "${GREEN}[+] Location:${RESET}"
+        echo -e "${GREEN}   Country: $country${RESET}"
+        echo -e "${GREEN}   Region: $region${RESET}"
+        echo -e "${GREEN}   City: $city${RESET}"
     fi
 }
 
@@ -118,19 +136,22 @@ execute_rotation() {
         while true; do
             sleep "$interval"
             rotate_identity
-            echo -e "${GREEN}[+] New IP: $(fetch_ip)${RESET}"
+            fetch_ip_and_location
         done
     else
         for ((i = 1; i <= cycles; i++)); do
             sleep "$interval"
             rotate_identity
-            echo -e "${GREEN}[+] New IP: $(fetch_ip)${RESET}"
+            fetch_ip_and_location
         done
     fi
 }
 
-#check if the user run as root or with sudo
+# Check if the user is running as root
 check_sudo
+
 # Ensure dependencies are installed and start the script
 install_dependencies
+
+# Start IP rotation
 execute_rotation
