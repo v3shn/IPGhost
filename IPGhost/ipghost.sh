@@ -88,8 +88,8 @@ cleanup() {
 # Handle script termination
 trap cleanup SIGINT SIGTERM
 
-# Rotate identity using Tor
-rotate_identity() {
+# change identity using Tor
+change_identity() {
     echo -e "${YELLOW}[~] Changing identity...${RESET}"
     sudo service tor reload
     echo -e "${YELLOW}[~] Identity changed.${RESET}"
@@ -118,8 +118,8 @@ fetch_ip_and_location() {
     fi
 }
 
-# Main function for IP rotation
-execute_rotation() {
+# Main function for IP changing
+main() {
     display_banner
     initialize_tor
 
@@ -135,23 +135,23 @@ execute_rotation() {
         echo -e "${GREEN}[+] Infinite mode activated. Press Ctrl+C to stop.${RESET}"
         while true; do
             sleep "$interval"
-            rotate_identity
+            change_identity
             fetch_ip_and_location
         done
     else
         for ((i = 1; i <= cycles; i++)); do
             sleep "$interval"
-            rotate_identity
+            change_identity
             fetch_ip_and_location
         done
     fi
 }
 
-# Check if the user is running as root
+# Check if the user is running as root or with sudo
 check_sudo
 
 # Ensure dependencies are installed and start the script
 install_dependencies
 
-# Start IP rotation
-execute_rotation
+# Start IP changing
+main
