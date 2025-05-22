@@ -20,7 +20,7 @@ IPGhost is a strong tool for ethical hackers. It helps you stay private and anon
 
 ## Requirements
 
-- A Debian-based Linux distribution (e.g., Ubuntu, tested on Kali Linux).
+- A Debian-based Linux distribution (e.g., parrot os,Ubuntu, tested on Kali Linux).
 
 - Root privileges to install dependencies and manage the Tor service.
 
