@@ -159,10 +159,6 @@ Then Enter `n`for uninstall.
 
 This tool is open-source and available under the MIT License.
 
-## Disclaimer
-
-IPGhost is for educational purposes only. Misuse of the tool could violate the terms of service of websites, services, or networks you access. Always use the tool responsibly and in accordance with applicable laws and regulations.
-
 ## Author
 
 - **Sreeraj**
