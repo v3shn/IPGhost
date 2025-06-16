@@ -6,7 +6,7 @@ read -r choice
 
 if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
     # Install the Bash tool
-    chmod 777 ipghost.sh
+    chmod 755 ipghost.sh
     mkdir -p /usr/share/ipghost
     cp ipghost.sh /usr/share/ipghost/ipghost.sh
 
