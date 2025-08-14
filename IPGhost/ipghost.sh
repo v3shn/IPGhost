@@ -60,10 +60,10 @@ display_banner() {
   _| |_| |      | |__| | | | | (_) \__ \ |_ 
  |_____|_|       \_____|_| |_|\___/|___/\__|
 
-                         Developer: Sreeraj
+                         Developer: vishnu
                                                                         
 EOF
-    echo -e "${RESET}${YELLOW}* GitHub: https://github.com/s-r-e-e-r-a-j${RESET}"
+    echo -e "${RESET}${YELLOW}* GitHub: https://github.com/v3shn${RESET}"
     echo
     echo -e "${GREEN}Change your SOCKS to 127.0.0.1:9050${RESET}"
     echo
